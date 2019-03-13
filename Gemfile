@@ -76,3 +76,4 @@ gem 'hashie'
 # gem 'google-api-client', '~> 0.13.6'
 gem 'pry-rails'
 gem 'cocoon'
+gem "actionview", ">= 5.2.2.1"
