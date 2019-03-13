@@ -1,0 +1,56 @@
+<% content_for :header do %>
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        <%= @workout.name %>
+      </h3>
+      <h4 class="subtitle">
+        <%= @workout.date.strftime('%A, %B, %d')%>
+        </h4>
+    </div>
+  </div>
+</section>
+<% end %>
+<br>
+
+      <h3><strong> DURATION:</strong> <%= @workout.duration %></h3>
+        <h3><strong> NOTES: </strong><%= @workout.notes%></h3>
+<br>
+
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th style="text-align: center">Exercise</th>
+          <th style="text-align: center">Sets</th>
+          <th style="text-align: center">Reps</th>
+          <th style="text-align: center">Weight(lbs)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @workout.exercises.each do |exercise| %>
+        <tr>
+          <td style="text-align: center"><%= exercise.name %></td>
+        <% exercise.worksets.each do |workset| %>
+          <td style="text-align: center"><%= workset.sets %></td>
+          <td style="text-align: center"><%= workset.reps %></td>
+          <td style="text-align: center"><%= workset.weight %></td>
+
+          <% end %>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <% if @user.id == current_user.id %>
+      <div class="btn-group">
+        <%= link_to "Edit", edit_workout_path(@workout), class:"button is-warning" %>
+        <%= link_to "Delete", workout_path(@workout),
+                    method: :delete,
+                    data: {confirm: "Are you sure you want to delete?"},
+                    class:"button is-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

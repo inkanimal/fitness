@@ -1,0 +1,46 @@
+<% content_for :header do %>
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+         WORKOUT BUILDER </h3>
+       </div>
+     </div>
+   </section>
+         <%end%>
+<section class="section">
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-4">
+      <div class="workout-form-group">
+
+
+        <h2><strong>CREATE A NEW WORKOUT</strong></h2>
+
+        <%= form_tag new_workout_path, method: "get" do %>
+          <p class="conatainer">How many exercises would you like to add?</p>
+
+          <div class="input-group workout-form-control">
+            <div class="select is-rounded" >
+              <div class="control">
+                 <%= select_tag :exercise_num, options_for_select(1..10), class:"form-control" %>
+                 <div class="input-group-append">
+              </div>
+
+              <br>
+              <%= submit_tag "Add", class:"button is-dark" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+        <% end %>
+        <br>
+
+        <%= render 'form' %>
