@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_form'
 gem 'faker'
 gem 'devise'
-gem 'bootstrap', '~> 4.1.2'
+gem 'bootstrap', '>= 4.3.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
 gem 'mini_magick'
