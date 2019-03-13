@@ -1,0 +1,13 @@
+<%= form_tag new_workout_path, method: "get" do %>
+        <p class="hollys-xs">How many sets would you like to add:</p>
+
+        <div class="input-group workout-form-control">
+          <%= select_tag :workset_num, options_for_select(1..10), class:"form-control" %>
+          <div class="input-group-append">
+            <%= submit_tag "Add", class:"btn btn-outline-danger btn-sm" %>
+          </div>
+        </div>
+      <% end %>
+
+
+<%= render partial:'form', locals:{exercise: @exercise, workout: @workout} %>

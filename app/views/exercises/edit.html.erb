@@ -1,0 +1,7 @@
+<h1>Edit Exercise</h1>
+
+<%= render partial:'form', locals:{exercise: @exercise, workout: @exercise.workout} %>
+
+<%= form_tag(exercise_path(@exercise),method: :delete) do %>
+		<%= submit_tag "Delete Exercise" %>
+<% end %>
