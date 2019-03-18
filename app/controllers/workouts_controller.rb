@@ -44,8 +44,6 @@ class WorkoutsController < ApplicationController
   def destroy
     @workout.delete_workout
     redirect_to @user
-
-  redirect_to workouts_path
   end
 
   private

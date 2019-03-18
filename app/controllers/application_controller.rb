@@ -1,6 +1,6 @@
-class ApplicationController < ActionController::Base
 
-  require 'google/apis/people_v1'
+
+require 'google/apis/people_v1'
 require 'google/api_client/client_secrets.rb'
 
 
@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
           {
             "access_token" => current_user.token,
             "refresh_token" => current_user.refresh_token,
-            "client_id" => Rails.application.secrets[:google_client_id],
-            "client_secret" => Rails.application.secrets[:google_secret]
+            "client_id" => Rails.application.credentials.google[:client_id],
+            "client_secret" => Rails.application.credentials.google[:client_secret]
           }
       }
     )
@@ -29,5 +29,4 @@ class ApplicationController < ActionController::Base
     )
     render json: response
   end
-
 end

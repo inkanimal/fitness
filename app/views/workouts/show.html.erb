@@ -45,11 +45,11 @@
 
     <% if @user.id == current_user.id %>
       <div class="btn-group">
-        <%= link_to "Edit", edit_workout_path(@workout), class:"button is-warning" %>
+        <%= link_to "Edit", edit_workout_path(@workout), class:"button is-dark is-rounded" %>
         <%= link_to "Delete", workout_path(@workout),
                     method: :delete,
                     data: {confirm: "Are you sure you want to delete?"},
-                    class:"button is-warning" %>
+                    class:"button is-dark is-rounded" %>
       </div>
     <% end %>
   </div>

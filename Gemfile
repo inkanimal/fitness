@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -72,8 +72,8 @@ gem 'mini_magick'
 gem 'bulma-rails', '~> 0.6.1'
 gem 'dotenv-rails'
 gem 'hashie'
-# gem 'omniauth-google-oauth2', '~> 0.2.2'
-# gem 'google-api-client', '~> 0.13.6'
+gem 'omniauth-google-oauth2', '~> 0.2.2'
+gem 'google-api-client', '~> 0.13.6'
 gem 'pry-rails'
 gem 'cocoon'
 gem "actionview", ">= 5.2.2.1"
