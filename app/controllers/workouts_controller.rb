@@ -15,7 +15,6 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.new(workout_params)
-    #@workout.worksets
     @workout.user_id = current_user.id
     if @workout.valid?
       @workout.save
@@ -43,7 +42,7 @@ class WorkoutsController < ApplicationController
 
   def destroy
     @workout.delete_workout
-    redirect_to @user
+    redirect_to root_path
   end
 
   private
