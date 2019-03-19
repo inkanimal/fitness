@@ -3,6 +3,7 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all
+    @workouts = current_user.id
   end
 
   def show
@@ -41,8 +42,8 @@ class WorkoutsController < ApplicationController
   end
 
   def destroy
-    @workout.delete_workout
-    redirect_to root_path
+    @workout.destroy
+    redirect_to @workout
   end
 
   private

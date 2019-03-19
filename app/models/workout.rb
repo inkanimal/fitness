@@ -1,6 +1,6 @@
 class Workout < ApplicationRecord
   belongs_to :user
-  has_many :worksets, inverse_of: :workout
+  has_many :worksets, inverse_of: :workout, dependent: :destroy
   has_many :exercises, through: :worksets
   accepts_nested_attributes_for :worksets, allow_destroy: true
 
@@ -11,8 +11,8 @@ class Workout < ApplicationRecord
   end
 
   def delete_workout
-    self.exercises.each(&:destroy)
-    self.worksets.destroy_all
+  
+    self.worksets.each(&:destroy)
     self.destroy
   end
 
