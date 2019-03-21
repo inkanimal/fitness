@@ -5,7 +5,6 @@ class Workset < ApplicationRecord
 
 
   def exercise_attributes=(exercise)
-  
     self.exercise = Exercise.find_or_create_by(name: exercise["name"])
     self.exercise.update(exercise)
   end
