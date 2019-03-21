@@ -261,11 +261,11 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  client_id = Rails.application.credentials.google[:client_id]
-  client_secret = Rails.application.credentials.google[:client_secret]
-  # Configure Google omniauth with proper scope
-  config.omniauth :google_oauth2, client_id, client_secret, {
-   scope: "contacts.readonly,userinfo.email" }
+  APP_ID = Rails.application.credentials.facebook[:APP_ID]
+  APP_SECRET = Rails.application.credentials.facebook[:APP_SECRET]
+  config.omniauth :facebook, APP_ID, APP_SECRET
+
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

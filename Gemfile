@@ -72,8 +72,10 @@ gem 'mini_magick'
 gem 'bulma-rails', '~> 0.6.1'
 gem 'dotenv-rails'
 gem 'hashie'
-gem 'omniauth-google-oauth2', '~> 0.2.2'
-gem 'google-api-client', '~> 0.13.6'
+gem 'omniauth-facebook'
+# gem 'omniauth-google-oauth2', '~> 0.2.2'
+# gem 'google-api-client', '~> 0.13.6'
 gem 'pry-rails'
 gem 'cocoon'
 gem "actionview", ">= 5.2.2.1"
+gem "thin"
