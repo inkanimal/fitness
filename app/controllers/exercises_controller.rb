@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
    before_action :find_exercise, only: [:show, :destroy]
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.all.order("name")
   end
 
   def show
