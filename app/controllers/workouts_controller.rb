@@ -32,8 +32,9 @@ class WorkoutsController < ApplicationController
   def update
     @workout.assign_attributes(workout_params)
     if @workout.valid?
-      @workout.delete_exercises
+      @workout.delete_worksets
       @workout.update_attributes(workout_params)
+      # @workout.save
       redirect_to @workout
     else
       flash[:errors] = @workout.errors.full_messages

@@ -4,5 +4,7 @@ class Exercise < ApplicationRecord
 
   validates_presence_of :name
 
-  
+  def self.exercise_order
+    order("name")
+  end
 end

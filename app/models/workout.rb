@@ -10,14 +10,8 @@ class Workout < ApplicationRecord
     num.to_i.times { self.worksets.build.build_exercise } if num
   end
 
-  def delete_workout
-  
-    self.worksets.each(&:destroy)
-    self.destroy
-  end
 
-  def delete_exercises
-    self.exercises.each(&:destroy)
+  def delete_worksets
     self.worksets.destroy_all
   end
 end
