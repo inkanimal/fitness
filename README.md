@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+##X-ercise
+This is a simple fitness app that allows a user to track their workouts.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Getting Started
+Before getting started make sure you are running the latest version of ruby 2.6.2. Bundle install the gem files. Then run rake db:migrate and rake db:seed to get the pre-loaded exercises.
