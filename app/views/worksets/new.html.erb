@@ -1,0 +1,37 @@
+<% content_for :header do %>
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        ADD SETS
+      </h3>
+      <h4 class="subtitle">
+
+        </h4>
+    </div>
+  </div>
+</section>
+<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+
+<%= simple_form_for ([@workout, @workset]) do |w| %>
+
+
+  <%= w.fields_for :exercise do |exercise_form| %>
+    <%= render 'workouts/exercise_fields', f: exercise_form %>
+  <% end %>
+  <%= w.input :sets, placeholder:"Sets",  required: true, autofocus: true, input_html: { class: "input is-rounded"}, wrapper: false, label_html: { class: "label" } %>
+  <%= w.input :reps, placeholder:"Reps",  required: true, autofocus: true, input_html: { class: "input is-rounded"}, wrapper: false, label_html: { class: "label" } %>
+  <%= w.input :weight, placeholder:"Weight",  required: true, autofocus: true, input_html: { class: "input is-rounded"}, wrapper: false, label_html: { class: "label" } %>
+
+
+
+<br></br>
+<%=  w.button :submit, "Submit", class:"button is-dark is-rounded" %>
+<%end%>
+</div>
+</div>
+</div>
