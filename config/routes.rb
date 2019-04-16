@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :exercises
+  
 
   root to: 'welcome#index'
 end

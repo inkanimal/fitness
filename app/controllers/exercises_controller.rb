@@ -6,7 +6,7 @@ class ExercisesController < ApplicationController
   end
 
   def show
-
+  
   end
 
   def destroy

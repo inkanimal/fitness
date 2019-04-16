@@ -43,7 +43,7 @@
     </table>
 
 
-    <% if @user.id == current_user.id %>
+    <%if @user.id == current_user.id %>
       <div class="btn-group">
         <%= link_to "Edit Workout", edit_workout_path(@workout), class:"button is-dark is-rounded" %>
         <%= link_to "Add Exercise", new_workout_workset_path(@workout), class:"button is-dark is-rounded" %>
@@ -52,6 +52,6 @@
                     data: {confirm: "Are you sure you want to delete?"},
                     class:"button is-dark is-rounded" %>
       </div>
-    <% end %>
+    <% end%>
   </div>
 </div>

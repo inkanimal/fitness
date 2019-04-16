@@ -14,6 +14,10 @@
 <% end %>
 
 <br>
+<h4>Workouts that include this exercise.</h4>
+   <%=@workouts.name%>
+
+
 <%= link_to "Delete", exercise_path(@exercise),
             method: :delete,
             data: {confirm: "Are you sure you want to delete?"},

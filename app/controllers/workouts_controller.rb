@@ -1,13 +1,26 @@
 class WorkoutsController < ApplicationController
   before_action :find_workout, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
   def index
-    @workouts = Workout.all
-    @workouts = current_user.id
+    # @workouts = current_user.id
+
+    # @workouts = Workout.where(:user_id => current_user.id)
+    if params[:user_id]
+       @user = User.find(params[:user_id])
+       @workouts = @user.workouts
+    elsif params[:fitler_by_reps]
+      @workouts = Workout.filter_by_reps(params[:fitler_by_reps])
+      @workouts.uniq
+    else
+      @workouts = Workout.all
+    end
   end
 
   def show
   end
+
 
   def new
     @workout = Workout.new
@@ -22,7 +35,7 @@ class WorkoutsController < ApplicationController
       redirect_to @workout
     else
       flash[:errors] = @workout.errors.full_messages
-      redirect_to new_workout_path
+      render :new
     end
   end
 

@@ -6,12 +6,19 @@ class Workout < ApplicationRecord
 
   validates :name, presence: true
 
+  # scope :workout_order, -> { order("date DESC")}
+
   def exercise_num(num)
     num.to_i.times { self.worksets.build.build_exercise } if num
   end
 
-
-  def delete_worksets
-    self.worksets.destroy_all
+  def self.filter_by_reps(num)
+    self.joins(:worksets).where("worksets.reps > ?", num).uniq
   end
+
+  def self.unique_workouts
+     Workout.select('DISTINCT(name)')
+  end
+
+
 end
