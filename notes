@@ -1,0 +1,13 @@
+function checkExercise() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var button = document.getElementById("button");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    button.style.display = "block";
+  } else {
+    button.style.display = "none";
+  }
+}

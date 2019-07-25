@@ -17,28 +17,72 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
-
-
-
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <div class="exercises">
+       <h4>Filter By Exercise</h4>
+      <input type="text" id="myInput" class="input is-fullwidth" onkeyup="myFunction()" placeholder="Search by ecercise name...">
+       <br>
+        <table id="exerciseTable" class="table is-bordered is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th style="text-align: center">Exercise</th>
-
-
-            </tr>
+          <th style="text-align: left">Exercise</th>
+         
+        </tr>
           </thead>
           <tbody>
             <% @exercises.each do |exercise| %>
             <tr>
-              <td style="text-align: center"><%= link_to exercise.name, exercise, class:"special-links" %></td>
-
+              <td style="text-align: left"> <%= link_to exercise.name, exercise, class:"special-links" %>  </td>
+           
               <% end %>
 
             </tr>
           </tbody>
         </table>
 
+        
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("exerciseTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+
+
+
+function checkExercise() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var button = document.getElementById("button");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    button.style.display = "block";
+  } else {
+    button.style.display = "none";
+  }
+}
+</script>
       </div>
     </div>
   </div>
+  </div>
+
+

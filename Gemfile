@@ -79,3 +79,4 @@ gem 'pry-rails'
 gem 'cocoon'
 gem "actionview", ">= 5.2.2.1"
 gem "thin"
+gem 'active_model_serializers'

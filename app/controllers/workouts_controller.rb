@@ -3,6 +3,10 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @workouts}
+    end
     @workouts = current_user.id
   end
 
@@ -55,7 +59,7 @@ class WorkoutsController < ApplicationController
   end
 
   def workout_params
-    params.require(:workout).permit(
+    params.require(:workout).permit(:id,
       :name, :date, :duration, :notes,
       worksets_attributes: [:_destroy, :sets, :reps, :weight,
         exercise_attributes: [:_destroy, :name]

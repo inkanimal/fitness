@@ -24,21 +24,24 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th style="text-align: center">Workout</th>
-              <th style="text-align: center">Date</th>
-
+              <th style="text-align: left">WORKOUTS</th>
             </tr>
           </thead>
           <tbody>
             <% current_user.workouts.each do |workout| %>
             <tr>
-              <td style="text-align: center"><%= link_to workout.name, workout, class:"special-links" %></td>
-              <td style="text-align: center"><%= workout.date.strftime('%A, %B, %d')%></td>
-
+              <td ><strong style="font-size: 20px"><%= link_to workout.name, workout, class:"special-links" %></strong><br>
+               <%= workout.date.strftime('%A, %B, %d')%></td>
+              </tr>  
+              <tr>
+              <td><strong>Time:</strong> <%=workout.duration%> | <strong>Notes:</strong> <%=workout.notes%></td>
+              </tr>
+              <tr>
+              <td><%= link_to "Show Workout Details", workout, class: "details"%>
 
               <% end %>
 
-            </tr>
+            
           </tbody>
         </table>
 

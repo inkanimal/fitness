@@ -261,9 +261,9 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  APP_ID = Rails.application.credentials.facebook[:APP_ID]
-  APP_SECRET = Rails.application.credentials.facebook[:APP_SECRET]
-  config.omniauth :facebook, APP_ID, APP_SECRET
+  # APP_ID = Rails.application.credentials.facebook[:APP_ID]
+  # APP_SECRET = Rails.application.credentials.facebook[:APP_SECRET]
+  # config.omniauth :facebook, APP_ID, APP_SECRET
 
 
 
