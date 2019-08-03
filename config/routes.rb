@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :exercises
 
+  get 'workouts/:id/next', to: 'workouts#next'
+
   root to: 'welcome#index'
 end

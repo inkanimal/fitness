@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-  before_action :find_workout, only: [:show, :edit, :update, :destroy]
+  before_action :find_workout, only: [:show, :edit, :update, :destroy, :next]
 
   def index
     @workouts = Workout.all
@@ -10,9 +10,7 @@ class WorkoutsController < ApplicationController
     @workouts = current_user.id
   end
 
-  def show
-  end
-
+  
   def new
     @workout = Workout.new
     @workout.exercise_num(params[:exercise_num])
@@ -23,13 +21,25 @@ class WorkoutsController < ApplicationController
     @workout.user_id = current_user.id
     if @workout.valid?
       @workout.save
-      redirect_to @workout
+      render json: @workout
     else
       flash[:errors] = @workout.errors.full_messages
       redirect_to new_workout_path
     end
   end
 
+  def next
+    @next_workout = @workout.next
+    render json: @next_workout
+  end
+  
+  def show
+    respond_to do |f|
+      f.html
+      f.json {render json: @workout}
+    end
+  end
+  
   def edit
   end
 
@@ -55,6 +65,10 @@ class WorkoutsController < ApplicationController
 
   def find_workout
     @workout = Workout.find(params[:id])
+    respond_to do |f|
+      f.html
+      f.json {render json: @workout}
+    end
     @user = @workout.user
   end
 

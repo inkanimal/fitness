@@ -278,3 +278,14 @@
 /* Background */
 .bg-white { background-color: white; }
 .bg-light { background-color: #F1F1F1; }
+
+.simple_form {
+  
+  label {
+    
+    width: 100px;
+    text-align: left;
+    margin: 2px 10px;
+    color: white;
+  }
+}

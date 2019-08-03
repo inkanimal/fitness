@@ -11,3 +11,41 @@ function checkExercise() {
     button.style.display = "none";
   }
 }
+
+
+
+
+let output = '';
+        
+        data.forEach(function(workout){
+           
+          output += `<section class="section"><div class="container"><div class="columns is-centered"><div class="column is-6">
+          <table class="table is-bordered is-striped is-narrow is-hoverable>
+          <thead>
+          <tr>
+            <th style="text-align: center"></th>
+            <th style="text-align: center">Exercise</th>
+            <th style="text-align: center">Sets</th>
+            <th style="text-align: center">Reps</th>
+            <th style="text-align: center">Weight(lbs)</th>
+        </thead>
+        <tbody>
+        <tr>
+              <td>  ${workout.exercises[0].name}</td>
+              <td> ${workout.worksets[0].sets}</td>
+              <td> ${workout.worksets[0].reps}</td>
+              <td> ${workout.worksets[0].weight}</td>
+        </tr>
+        <tr>
+        <td> ${workout.exercises[1].name}</td>
+        <td> ${workout.worksets[1].sets}</td>
+        <td> ${workout.worksets[1].reps}</td>
+        <td> ${workout.worksets[1].weight}</td>
+  </tr>
+        </tbody>
+        </table> 
+        </div></div></div>
+          `;
+       })
+       document.getElementById('output').innerHTML = output;
+    })

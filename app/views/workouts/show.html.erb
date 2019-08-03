@@ -1,4 +1,4 @@
-<% content_for :header do %>
+
 <section class="hero is-dark is-bold">
   <div class="hero-body">
     <div class="container">
@@ -8,17 +8,15 @@
       <h4 class="subtitle">
         <%= @workout.date.strftime('%A, %B, %d')%>
         </h4>
-    </div>
-  </div>
-</section>
-<% end %>
-<br>
+  
+
+
 
       <h3><strong> DURATION:</strong> <%= @workout.duration %></h3>
         <h3><strong> NOTES: </strong><%= @workout.notes%></h3>
 <br>
 
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <table class="table is-bordered is-striped is-narrow is-hoverable ">
       <thead>
         <tr>
           <th style="text-align: center">Exercise</th>
@@ -45,13 +43,16 @@
 
     <% if @user.id == current_user.id %>
       <div class="btn-group">
-        <%= link_to "Edit Workout", edit_workout_path(@workout), class:"button is-dark is-rounded" %>
-        <%= link_to "Add Exercise", new_workout_workset_path(@workout), class:"button is-dark is-rounded" %>
+        <%= link_to "Edit Workout", edit_workout_path(@workout), class:"button is-light is-rounded" %>
+        <%= link_to "Add Exercise", new_workout_workset_path(@workout), class:"button is-light is-rounded" %>
         <%= link_to "Delete", workout_path(@workout),
                     method: :delete,
                     data: {confirm: "Are you sure you want to delete?"},
-                    class:"button is-dark is-rounded" %>
+                    class:"button is-danger is-rounded" %>
       </div>
     <% end %>
   </div>
 </div>
+  </div>
+  </div>
+</section>

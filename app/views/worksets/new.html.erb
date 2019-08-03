@@ -1,20 +1,15 @@
-<% content_for :header do %>
+
 <section class="hero is-dark is-bold">
   <div class="hero-body">
     <div class="container">
-      <h3 class="title">
-        ADD SETS
-      </h3>
+      <h4 class="title">
+        ADD EXERCISE
+      </h4>
       <h4 class="subtitle">
 
         </h4>
-    </div>
-  </div>
-</section>
-<% end %>
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
+
+    <div class="columns is-left">
       <div class="column is-4">
 
 <%= simple_form_for ([@workout, @workset]) do |w| %>
@@ -30,8 +25,11 @@
 
 
 <br></br>
-<%=  w.button :submit, "Submit", class:"button is-dark is-rounded" %>
+<%=  w.button :submit, "Submit", class:"button is-light is-rounded" %>
 <%end%>
 </div>
 </div>
 </div>
+  </div>
+  </div>
+</section>

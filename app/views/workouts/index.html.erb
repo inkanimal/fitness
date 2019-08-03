@@ -1,4 +1,22 @@
-<% content_for :header do %>
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $(document).ready(function() {
+  
+    //To show rows
+     $(".showrows").click(function () {
+     $(".test  .1").show(1000)
+   });  
+       //To hide rows
+     $(".hiderows").click(function () {
+     $(".test  .1").hide("slow")
+   }); 
+});
+</script>
+
+
+
 <section class="hero is-dark is-bold">
   <div class="hero-body">
     <div class="container">
@@ -8,15 +26,7 @@
       <h4 class="subtitle">
         Total Workouts Completed by: <%=current_user.username%>
         </h4>
-    </div>
-  </div>
-</section>
-<% end %>
-
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
+    <div class="columns is-left">
       <div class="column is-6">
 
 
@@ -24,27 +34,47 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th style="text-align: left">WORKOUTS</th>
+              <th colspan="4" style="text-align: left">WORKOUTS</th>
             </tr>
-          </thead>
-          <tbody>
+         
+          
             <% current_user.workouts.each do |workout| %>
             <tr>
-              <td ><strong style="font-size: 20px"><%= link_to workout.name, workout, class:"special-links" %></strong><br>
+              <td colspan="4"><strong style="font-size: 20px"><%= link_to workout.name, workout, class:"special-links" %></strong><br>
                <%= workout.date.strftime('%A, %B, %d')%></td>
               </tr>  
               <tr>
-              <td><strong>Time:</strong> <%=workout.duration%> | <strong>Notes:</strong> <%=workout.notes%></td>
+              <td colspan="4"><strong>Time:</strong> <%=workout.duration%> | <strong>Notes:</strong> <%=workout.notes%></td>
               </tr>
               <tr>
-              <td><%= link_to "Show Workout Details", workout, class: "details"%>
+              <td colspan="4"><button class="showrows">Show Details</button>
+                  <button class="hiderows">Hide Details</button></td>
+               </tr>
+                </thead>
+                <tbody class="test">
+             <tr class="1">
+               <th style="text-align: center">Exercise</th>
+               <th style="text-align: center">Sets</th>
+               <th style="text-align: center">Reps</th>
+               <th style="text-align: center">Weight(lbs)</th>
+            </tr>
+               <% workout.worksets.each do |workset| %>
+            <tr class="1">
+               <td style="text-align: center"><%= workset.exercise.name %></td>
+               <td style="text-align: center"><%= workset.sets %></td>
+               <td style="text-align: center"><%= workset.reps %></td>
+               <td style="text-align: center"><%= workset.weight %></td>
+               <% end %>
+            </tr>
 
-              <% end %>
-
-            
+             <% end %>
+ 
           </tbody>
         </table>
 
       </div>
     </div>
   </div>
+     </div>
+  </div>
+</section>

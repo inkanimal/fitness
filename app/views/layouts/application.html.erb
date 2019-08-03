@@ -6,8 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
   </head>
 
   <body class="<%= yield (:body_class) %>">
@@ -39,10 +40,10 @@
       <a class="navbar-item"<%= link_to 'New Workout', new_workout_path%>
        </a>
 
-      <a class="navbar-item"<%= link_to 'My Workouts', workouts_path%>
+      <a id=all_workouts class="navbar-item"<%= link_to 'My Workouts', workouts_path%>
       </a>
 
-      <a class="navbar-item"<%= link_to 'Exercises', exercises_path%>
+      <a class="navbar-item" <%= link_to 'Exercises', exercises_path%>
         </a>
           <%end%>
         </div>
@@ -81,10 +82,10 @@
         </div>
     </div>
   </nav>
-
+   
   <%= yield(:header) %>
 
-  <div class="container">
+  <div id="output" class="container">
 
     <%= yield %>
 

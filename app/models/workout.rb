@@ -14,4 +14,13 @@ class Workout < ApplicationRecord
   def delete_worksets
     self.worksets.destroy_all
   end
+
+  def next
+    workout = Workout.where("id > ?", id).first
+    if workout
+      workout
+    else
+      Workout.first
+    end
+  end
 end
