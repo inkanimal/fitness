@@ -37,7 +37,8 @@
               <th colspan="4" style="text-align: left">WORKOUTS</th>
             </tr>
          
-          
+            <button class="filter">Filter Workouts</button>>
+            <br>
             <% current_user.workouts.each do |workout| %>
             <tr>
               <td colspan="4"><strong style="font-size: 20px"><%= link_to workout.name, workout, class:"special-links" %></strong><br>

@@ -61,6 +61,44 @@ const getWorkouts = () => {
           $('#output').append(workoutHtml)
         })
     })
+
+}
+
+
+$(() => {
+    filterWorkout()
+});
+// $( document ).ready(function() {
+//     filterWorkout()
+//     // Handler for .ready() called.
+//   });
+const filterWorkout = () => {
+    $('.filter').on('click', (e) => { 
+        fetch(`/workouts.json`)
+        .then(res => res.json())
+        .then(workouts => {
+             $('#output').html('')
+        // console.log(workouts)
+        workouts.sort(function(a, b) {
+            var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+          
+            // names must be equal
+            return 0;
+          });
+          workouts.forEach(workout => {
+            let newWorkout = new Workout(workout)
+            let workoutHtml = newWorkout.formatIndex()
+            $('#output').append(workoutHtml)
+        })
+  })
+})
 }
 
 

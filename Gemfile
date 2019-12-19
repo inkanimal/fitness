@@ -8,13 +8,14 @@ gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', ">= 3.12.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer', platforms: :ruby
+gem "rack", ">= 2.0.8"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -63,15 +64,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_form'
 gem 'faker'
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'bootstrap', '>= 4.3.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick', ">= 4.9.4"
 gem 'bulma-rails', '~> 0.6.1'
 gem 'dotenv-rails'
 gem 'hashie'
-gem 'omniauth-facebook'
+# gem 'omniauth-facebook'
 # gem 'omniauth-google-oauth2', '~> 0.2.2'
 # gem 'google-api-client', '~> 0.13.6'
 gem 'pry-rails'
@@ -80,3 +81,5 @@ gem "actionview", ">= 5.2.2.1"
 gem "thin"
 gem 'active_model_serializers'
 gem 'jquery-rails'
+gem "nokogiri", ">= 1.10.4"
+gem "loofah", ">= 2.3.1"
